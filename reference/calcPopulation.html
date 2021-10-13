@@ -129,9 +129,8 @@ the "future" dataset as specified by PopulationCalib.</p>
 
     <pre class="usage"><span class='fu'>calcPopulation</span><span class='op'>(</span>
   PopulationCalib <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"calibSSPs"</span>, <span class='st'>"calibSDPs"</span>, <span class='st'>"calibSSP2EU"</span><span class='op'>)</span>,
-  PopulationPast <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"WDI"</span>, <span class='st'>"WDI"</span>, <span class='st'>"Eurostat_WDI"</span><span class='op'>)</span>,
-  PopulationFuture <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SSPs"</span>, <span class='st'>"SDPs"</span>, <span class='st'>"SSP2EU"</span><span class='op'>)</span>,
-  useMIData <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  PopulationPast <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"WDI-MI"</span>, <span class='st'>"WDI-MI"</span>, <span class='st'>"Eurostat-WDI-MI"</span><span class='op'>)</span>,
+  PopulationFuture <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SSPs-MI"</span>, <span class='st'>"SDPs-MI"</span>, <span class='st'>"SSP2EU-MI"</span><span class='op'>)</span>,
   extension2150 <span class='op'>=</span> <span class='st'>"bezier"</span>,
   FiveYearSteps <span class='op'>=</span> <span class='cn'>TRUE</span>,
   naming <span class='op'>=</span> <span class='st'>"indicator_scenario"</span>
@@ -153,10 +152,6 @@ the "future" dataset as specified by PopulationCalib.</p>
       <td><p>population future data source</p></td>
     </tr>
     <tr>
-      <th>useMIData</th>
-      <td><p>logical</p></td>
-    </tr>
-    <tr>
       <th>extension2150</th>
       <td><p>string, either "bezier", "constant" or "none"</p></td>
     </tr>
@@ -175,8 +170,9 @@ the "future" dataset as specified by PopulationCalib.</p>
     <p>A magpie object with sets "iso3c", "year" and "variable".</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://rdrr.io/pkg/madrat/man/calcOutput.html'>madrat::calcOutput</a></p>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/madrat/man/calcOutput.html'>madrat::calcOutput()</a></code></p>
 <p>Other Population functions: 
+<code><a href='calcLabour.html'>calcLabour</a>()</code>,
 <code><a href='calcPopulationFuture.html'>calcPopulationFuture</a>()</code>,
 <code><a href='calcPopulationPast.html'>calcPopulationPast</a>()</code></p>
 <p>Other Combined scenario functions: 
@@ -202,7 +198,7 @@ the "future" dataset as specified by PopulationCalib.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Johannes Koch, Benjamin Leon Bodirsky, Lavinia Baumstark, Xiaoxi Wang, David Chen, Falk Benke, Araujo Eweron, Renato Rodrigues, Anastasis Giannousakis, Antoine Levesque, Michaja Pehl, Bjoern Soergel, Jan Philipp Dietrich.</p>
+  <p>Developed by Johannes Koch, Benjamin Leon Bodirsky, Lavinia Baumstark, Xiaoxi Wang, David Chen, Deborra Leip, Falk Benke, Araujo Eweron, Renato Rodrigues, Anastasis Giannousakis, Antoine Levesque, Michaja Pehl, Bjoern Soergel, Jan Philipp Dietrich.</p>
 </div>
 
 <div class="pkgdown">

@@ -55,7 +55,7 @@
     <loc>https://pik-piam.github.io/mrdrivers/reference/convertARIADNE.html</loc>
   </url>
   <url>
-    <loc>https://pik-piam.github.io/mrdrivers/reference/convertEurostat.html</loc>
+    <loc>https://pik-piam.github.io/mrdrivers/reference/convertEurostatPopGDP.html</loc>
   </url>
   <url>
     <loc>https://pik-piam.github.io/mrdrivers/reference/convertIIASApop.html</loc>
@@ -109,7 +109,7 @@
     <loc>https://pik-piam.github.io/mrdrivers/reference/readARIADNE.html</loc>
   </url>
   <url>
-    <loc>https://pik-piam.github.io/mrdrivers/reference/readEurostat.html</loc>
+    <loc>https://pik-piam.github.io/mrdrivers/reference/readEurostatPopGDP.html</loc>
   </url>
   <url>
     <loc>https://pik-piam.github.io/mrdrivers/reference/readIIASApop.html</loc>

@@ -40,14 +40,7 @@
 
 
 <meta property="og:title" content="calcPopulationPast — calcPopulationPast" />
-<meta property="og:description" content="Calculates a time series of Population. Different sources are available:
-WDI: Source: Worldbank. Taiwan was estimated as the
-difference between all countries and the global total.
-UN_PopDiv: UN Population Division data. Taiwan is estimated
-from &quot;other, non-specified areas&quot;. Missing countries have their
-values set to zero.
-
-" />
+<meta property="og:description" content="Calculate a time series of past population data." />
 
 
 
@@ -79,7 +72,7 @@ values set to zero.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrdrivers</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -121,14 +114,7 @@ values set to zero.
     </div>
 
     <div class="ref-description">
-    <p>Calculates a time series of Population. Different sources are available:</p><ul>
-<li><p><code>WDI</code>: Source: Worldbank. Taiwan was estimated as the
-difference between all countries and the global total.</p></li>
-<li><p><code>UN_PopDiv</code>: UN Population Division data. Taiwan is estimated
-from "other, non-specified areas". Missing countries have their
-values set to zero.</p></li>
-</ul>
-
+    <p>Calculate a time series of past population data.</p>
     </div>
 
     <pre class="usage"><span class='fu'>calcPopulationPast</span><span class='op'>(</span>PopulationPast <span class='op'>=</span> <span class='st'>"WDI-UN_PopDiv-MI"</span><span class='op'>)</span></pre>
@@ -138,7 +124,13 @@ values set to zero.</p></li>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>PopulationPast</th>
-      <td><p>population past data source</p></td>
+      <td><p>A string designating the source for the historical population data.
+Available sources are:</p><ul>
+<li><p>"WDI": World development indicators from the World Bank</p></li>
+<li><p>"UN_PopDiv": United Nations</p></li>
+<li><p>"MI": Missing island dataset</p></li>
+<li><p>"Eurostat": Eurostat</p></li>
+</ul></td>
     </tr>
     </table>
 

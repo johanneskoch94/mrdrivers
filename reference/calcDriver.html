@@ -26,7 +26,7 @@ be of interest to package developers."><!-- mathjax --><script src="https://cdnj
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/references.html">Source Information</a>
+    <a class="dropdown-item" href="../articles/scenarioOptions.html">Scenario Options</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -129,15 +129,24 @@ if supplementary is set to TRUE.</p>
     </div>
     <div class="section level2">
     <h2 id="vectorization-of-arguments">Vectorization of arguments<a class="anchor" aria-label="anchor" href="#vectorization-of-arguments"></a></h2>
-    <p>Vectors are accepted for -Calib, -Past and -Future arguments.
+    <p>Vectors are accepted for all arguments.
 If given a vector, different combinations are created and returned all at once. If more than one
 argument is vectorised, the arguments have to have the same length. Which time series are created can be
-illustrated with the following example. Let's say the harmonization function and past data source are vectors of
+illustrated with the following example. Let's say the "harmonization" and "pastdata" arguments are vectors of
 length 3. Then there will be in total 3 time series that are produced: the first time series is the result of
-combining the first harmonization function with the first past data source, the second time series the result of
-combining the second harmonization function with the second past data source, and the third time series the result
-of  using the respective third entry. The future data source used in each case is the same, since in this example
-only one future data source is provided.</p>
+combining the first harmonization element with the first pastdata element, the second time series the result of
+combining the second harmonization element with the second pastdata element, and the third time series the result
+of using the respective third entry. The futuredata element used in each case is the same, since in this example
+only one futuredata element is provided.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index">
+<ul><li><p><a href="calcGDPPast.html">calcGDPPast</a>, <a href="calcGDPPast.html">calcGDPFuture</a>, <a href="calcGDPPast.html">calcGDPpcPast</a> and <a href="calcGDPPast.html">calcGDPpcFuture</a> for the builiding blocks of the
+GDP and GDPpc scenarios.</p></li>
+<li><p><a href="calcPopulationPast.html">calcPopulationPast</a>, <a href="calcPopulationPast.html">calcPopulationFuture</a>, calcLaborPast, calcLaborFuture, <a href="calcPopulationPast.html">calcUrbanPast</a> and
+<a href="calcPopulationPast.html">calcUrbanFuture</a> for the builiding blocks of the Population, Labor and Urban scenarios.</p></li>
+</ul></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

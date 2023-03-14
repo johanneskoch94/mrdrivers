@@ -29,7 +29,7 @@
     
     <a class="navbar-brand me-2" href="index.html">mrdrivers</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9002</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,12 +40,6 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/scenarioOptions.html">Scenarios</a>
-  </div>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -69,7 +63,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="create-gdp-and-population-scenarios">Create GDP and Population Scenarios<a class="anchor" aria-label="anchor" href="#create-gdp-and-population-scenarios"></a>
 </h1></div>
-<p>R package <strong>mrdrivers</strong>, version <strong>1.0.1.9001</strong></p>
+<p>R package <strong>mrdrivers</strong>, version <strong>1.0.1.9002</strong></p>
 <p><a href="https://cran.r-project.org/package=mrdrivers" class="external-link"><img src="https://www.r-pkg.org/badges/version/mrdrivers" alt="CRAN status"></a> <a href="https://pik-piam.github.io/mrdrivers/actions"><img src="https://pik-piam.github.io/mrdrivers/workflows/check/badge.svg" alt="R build status"></a> <a href="https://app.codecov.io/gh/mrdrivers" class="external-link"><img src="https://codecov.io/gh/mrdrivers/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://pik-piam.r-universe.dev/builds" class="external-link"><img src="https://pik-piam.r-universe.dev/badges/mrdrivers" alt="r-universe"></a></p>
 <div class="section level2">
 <h2 id="purpose-and-functionality">Purpose and Functionality<a class="anchor" aria-label="anchor" href="#purpose-and-functionality"></a>
@@ -99,7 +93,7 @@
 <div class="section level2">
 <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
 </h2>
-<p>The key <code><a href="https://rdrr.io/pkg/madrat/man/readSource.html" class="external-link">madrat::readSource</a></code> and <code><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">madrat::calcOutput</a></code> functions provided by this package are listed below.</p>
+<p>The key <code><a href="https://rdrr.io/pkg/madrat/man/readSource.html" class="external-link">madrat::readSource()</a></code> and <code><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">madrat::calcOutput()</a></code> functions provided by this package are listed below.</p>
 <p>readSource:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "readWDI"            "readIMF"            "readEurostatPopGDP"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4] "readUN_PopDiv"      "readPEAP"           "readSSP"           </span></span>
@@ -117,6 +111,7 @@
 <li><p>the SDPs, i.e. SDP, SDP_EI, SDP_RC, and SDP_MC</p></li>
 <li><p>SSP2EU</p></li>
 </ul>
+<p>see <code>vignette("scenarios")</code> for more information on available scenarios and references of the default scenarios.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -137,7 +132,7 @@
 </h2>
 <p>The package comes with a vignette describing the basic functionality of the package and how to use it. You can load it with the following command (the package needs to be installed):</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"scenarioOptions"</span><span class="op">)</span> <span class="co"># Scenarios</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"scenarios"</span><span class="op">)</span> <span class="co"># Scenarios</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="questions--problems">Questions / Problems<a class="anchor" aria-label="anchor" href="#questions--problems"></a>
@@ -148,13 +143,13 @@
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>To cite package <strong>mrdrivers</strong> in publications use:</p>
-<p>Koch J, Soergel B, Leip D, Benke F, Dietrich J (2023). <em>mrdrivers: Create GDP and Population Scenarios</em>. R package version 1.0.1.9001, &lt;URL: <a href="https://pik-piam.github.io/mrdrivershttps://github.com/pik-piam/mrdrivers" class="uri">https://pik-piam.github.io/mrdrivershttps://github.com/pik-piam/mrdrivers</a>&gt;.</p>
+<p>Koch J, Soergel B, Leip D, Benke F, Dietrich J (2023). <em>mrdrivers: Create GDP and Population Scenarios</em>. R package version 1.0.1.9002, &lt;URL: <a href="https://pik-piam.github.io/mrdrivershttps://github.com/pik-piam/mrdrivers" class="uri">https://pik-piam.github.io/mrdrivershttps://github.com/pik-piam/mrdrivers</a>&gt;.</p>
 <p>A BibTeX entry for LaTeX users is</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>@Manual{,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> title = {mrdrivers: Create GDP and Population Scenarios},</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> author = {Johannes Koch and Bjoern Soergel and Deborra Leip and Falk Benke and Jan Philipp Dietrich},</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> year = {2023},</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> note = {R package version 1.0.1.9001},</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> note = {R package version 1.0.1.9002},</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> url = {https://pik-piam.github.io/mrdrivers},</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a> url = {https://github.com/pik-piam/mrdrivers},</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>

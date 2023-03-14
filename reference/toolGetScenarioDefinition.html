@@ -92,37 +92,37 @@ as a list.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">toolGetScenarioDefinition</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 29 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    driver scenario   pastData        futureData harmonization  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> GDPpc  SSPs       WDI-MI          SSPsOld-MI calibSSPs      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> GDPpc  SDPs       -               -          calibSDPs      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> GDPpc  SSP2EU     -               -          calibSSP2EU    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> GDPpc  SSP2EU     -               -          GDPoverPop     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> GDPpc  noCovid    WDI-MI          SSPsOld-MI calibNoCovid   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> GDPpc  longCovid  -               -          calibLongCovid </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> GDPpc  shortCovid -               -          calibShortCovid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> GDP    SSPs       -               -          calibSSPs      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> GDP    SDPs       -               -          calibSDPs      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> GDP    SSP2EU     Eurostat-WDI-MI SSP2EU-MI  calibSSP2EU2   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> GDP    noCovid    -               -          calibNoCovid   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 18 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> GDPpc  SSPsOld    -               -          GDPoverPop     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> GDP    SSPs       -               -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> GDP    SDPs       -               -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> GDP    SSP2EU     Eurostat-WDI-MI SSP2EU-MI  calibSSP2EU    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 19 more rows</span></span>
 <span class="r-in"><span><span class="fu">toolGetScenarioDefinition</span><span class="op">(</span>driver <span class="op">=</span> <span class="st">"GDP"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   driver scenario   pastData             futureData harmonization  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> GDP    SSPs       -                    -          calibSSPs      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> GDP    SDPs       -                    -          calibSDPs      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> GDP    SSP2EU     Eurostat-WDI-MI      SSP2EU-MI  calibSSP2EU2   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> GDP    noCovid    -                    -          calibNoCovid   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> GDP    longCovid  -                    -          calibLongCovid </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> GDP    shortCovid -                    -          calibShortCovid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> GDP    SSPs       -                    -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> GDP    SDPs       -                    -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> GDP    SSP2EU     Eurostat-WDI-MI      SSP2EU-MI  calibSSP2EU    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> GDP    noCovid    -                    -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> GDP    longCovid  -                    -          GDPpcWithPop   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> GDP    shortCovid -                    -          GDPpcWithPop   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> GDP    SSPsOld    IHME_USD05_PPP_pc-MI SSPs-MI    past_transition</span>
 <span class="r-in"><span><span class="fu">toolGetScenarioDefinition</span><span class="op">(</span>scen <span class="op">=</span> <span class="st">"SSP2EU"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   driver     scenario pastData                  futureData          harmonizat…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> GDPpc      SSP2EU   -                         -                   calibSSP2EU </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> GDP        SSP2EU   Eurostat-WDI-MI           SSP2EU-MI           calibSSP2EU2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> GDPpc      SSP2EU   -                         -                   GDPoverPop  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> GDP        SSP2EU   Eurostat-WDI-MI           SSP2EU-MI           calibSSP2EU </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Population SSP2EU   Eurostat-WDI-UN_PopDiv-MI SSP2EU-UN_PopDiv-MI calibSSP2EU </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Labour     SSP2EU   -                         SSP2EU              -           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Urban      SSP2EU   WDI                       SSP2EU              past        </span>
@@ -141,7 +141,7 @@ as a list.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SSPs-UN_PopDiv-MI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $harmonization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "calibSSPs"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "withPEAPandFuture"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

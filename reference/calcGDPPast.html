@@ -88,11 +88,11 @@ Use calcGDPPast and calcGDPFuture only when trying to access specific GDP data.<
 
 <dt>unit</dt>
 <dd><p>A string specifying the unit of GDP. Can be either:</p><ul><li><p>"constant 2005 Int$PPP" (default): Scenarios are constructed in constant 2005 Int$PPP.</p></li>
-<li><p>"constant 2005 US$MER": Scenarios are constructed in constant 2005 Int$PPP and converted before being
-returned with <code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
+<li><p>"constant 2005 US$MER": Scenarios are constructed in constant 2005 Int$PPP and then converted with
+<code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
 <li><p>"constant 2017 Int$PPP": Scenarios are constructed in constant 2017 Int$PPP.</p></li>
-<li><p>"constant 2017 US$MER": Scenarios are constructed in constant 2017 Int$PPP and converted before being
-returned with <code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
+<li><p>"constant 2017 US$MER": Scenarios are constructed in constant 2017 Int$PPP and then converted with
+<code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
 </ul><p>In all cases, GDP is returned in millions.</p></dd>
 
 

@@ -102,11 +102,11 @@ between past data and future projections. Together with the corresponding popula
 
 <dt>unit</dt>
 <dd><p>A string specifying the unit of GDP. Can be either:</p><ul><li><p>"constant 2005 Int$PPP" (default): Scenarios are constructed in constant 2005 Int$PPP.</p></li>
-<li><p>"constant 2005 US$MER": Scenarios are constructed in constant 2005 Int$PPP and converted before being
-returned with <code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
+<li><p>"constant 2005 US$MER": Scenarios are constructed in constant 2005 Int$PPP and then converted with
+<code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
 <li><p>"constant 2017 Int$PPP": Scenarios are constructed in constant 2017 Int$PPP.</p></li>
-<li><p>"constant 2017 US$MER": Scenarios are constructed in constant 2017 Int$PPP and converted before being
-returned with <code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
+<li><p>"constant 2017 US$MER": Scenarios are constructed in constant 2017 Int$PPP and then converted with
+<code><a href="https://pik-piam.github.io/GDPuc/reference/convertGDP.html" class="external-link">GDPuc::convertGDP()</a></code>.</p></li>
 </ul><p>In all cases, GDP is returned in millions.</p></dd>
 
 
@@ -141,21 +141,18 @@ if supplementary is set to TRUE.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pik-piam.github.io/mrdrivers">mrdrivers</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Return default scenarios</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">calcOutput</a></span><span class="op">(</span><span class="st">"GDP"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">calcOutput</span><span class="op">(</span><span class="st">"GDP"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Return only the SSP2EU GDP scenario</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">calcOutput</a></span><span class="op">(</span><span class="st">"GDP"</span>, scenario <span class="op">=</span> <span class="st">"SSP2EU"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">calcOutput</span><span class="op">(</span><span class="st">"GDP"</span>, scenario <span class="op">=</span> <span class="st">"SSP2EU"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Return the now-outdated GDP scenarios used before summer 2021,</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">calcOutput</a></span><span class="op">(</span><span class="st">"GDP"</span>, scenario <span class="op">=</span> <span class="st">"SSPsOld"</span>, extension2150 <span class="op">=</span> <span class="st">"constant"</span>, average2020 <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">calcOutput</span><span class="op">(</span><span class="st">"GDP"</span>, scenario <span class="op">=</span> <span class="st">"SSPsOld"</span>, extension2150 <span class="op">=</span> <span class="st">"constant"</span>, average2020 <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pik-piam.github.io/mrdrivers">mrdrivers</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/madrat/man/calcOutput.html" class="external-link">calcOutput</a></span><span class="op">(</span><span class="st">"GDPpc"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">calcOutput</span><span class="op">(</span><span class="st">"GDPpc"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

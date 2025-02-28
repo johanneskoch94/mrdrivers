@@ -90,6 +90,9 @@ toolGetScenarioDefinition <- function(driver = NULL, scen = NULL, aslist = FALSE
     "Urban",      "SSP4",            "WDI",                 "SSP4",                   "pastAndGrowth",
     "Urban",      "SSP5",            "WDI",                 "SSP5",                   "pastAndGrowth",
     "Urban",      "SDPs",            "WDI",                 "SDPs",                   "pastAndGrowth",
+    "Urban",      "SSP2IndiaDEAs",   "WDI",                 "SSP2",                   "pastAndGrowth",
+    "Urban",      "SSP2IndiaMedium", "WDI",                 "SSP2",                   "pastAndGrowth",
+    "Urban",      "SSP2IndiaHigh",   "WDI",                 "SSP2",                   "pastAndGrowth"
   )
 
   shortcuts <- list("SSPs" = c("SSP1", "SSP2", "SSP3", "SSP4", "SSP5"),

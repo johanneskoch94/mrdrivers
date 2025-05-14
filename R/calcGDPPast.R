@@ -50,6 +50,7 @@ calcInternalGDPPast <- function(pastData) {
     "WDI"   = readSource("WDI", "gdp"),
     "MI"    = readSource("MissingIslands", "gdp"),
     "James" = toolGDPPastJames(),
+    "SSPs"  = readSource("SSP", "gdp", "Historical Reference"),
     stop("Bad input for calcGDPPast. Invalid 'pastData' argument.")
   )
 

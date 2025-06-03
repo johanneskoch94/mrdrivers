@@ -24,6 +24,9 @@
 #'          last year of 'past' and decreases linearly to 0 by yEnd.
 #'  }
 #' @param yEnd Additional input for "transition" method. Year by which the transition period is completed.
+#' @param requireTimeOverlap If TRUE (default), will throw an error if past and future do not have overlapping years.
+#'   If FALSE, then the past object is extended (using the most recent value as a constant) until the first future
+#'   year.
 #'
 #' @return A magpie object with the same dimensions as 'future'.
 #' @export
@@ -31,7 +34,7 @@
 #' @examples \dontrun{
 #' toolHarmonizePast(past, future)
 #' }
-toolHarmonizePast <- function(past, future, method = "level", yEnd = 2100) {
+toolHarmonizePast <- function(past, future, method = "level", yEnd = 2100, requireTimeOverlap = TRUE) {
   if (!is.magpie(past) && !is.magpie(future)) {
     pastDescription <- past$description
     past <- past$x
@@ -48,7 +51,13 @@ toolHarmonizePast <- function(past, future, method = "level", yEnd = 2100) {
   lastPastYear <- max(getYears(past, as.integer = TRUE))
   firstFutureYear <- min(getYears(future, as.integer = TRUE))
   if (lastPastYear < firstFutureYear) {
-    stop("The past and future data need to have some overlap.")
+    if (requireTimeOverlap) {
+      stop("The past and future data need to have some overlap.")
+    } else {
+      future <- time_interpolate(future,
+                                 interpolated_year = lastPastYear:(firstFutureYear - 1),
+                                 integrate_interpolated_years = TRUE)
+    }
   }
 
   # If lastPastYear is not in future data, then create future data for lastPastYear

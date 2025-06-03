@@ -150,9 +150,12 @@ calcHarmonizedData <- function(driver, scenario) {
   harmonizedData <- switch(
     harmonization,
     "pastAndLevel"        = toolHarmonizePast(past, future, method = "level"),
+    "pastAndLevelX"       = toolHarmonizePast(past, future, method = "level", requireTimeOverlap = FALSE),
     "pastAndGrowth"       = toolHarmonizePast(past, future, method = "growth"),
+    "pastAndGrowthX"      = toolHarmonizePast(past, future, method = "growth", requireTimeOverlap = FALSE),
     "pastAndTransition"   = toolHarmonizePast(past, future, method = "transition", yEnd = 2100),
     "PopSSPs"             = toolHarmonizeWithPEAPandFuture(past, future),
+    "LabSSPs"             = toolHarmonizeLabourSSPs(past, future),
     "PopSSP2IndiaDEAs"    = toolHarmonizePopulationSSP2IndiaDEAs(past, future),
     "PopISIMIP"           = toolHarmonizePast(past, future, method = "transition", yEnd = 2030),
     "GDPpcSSPs"           = toolHarmonizeGDPpcSSPs(past, future, yEnd = 2100),

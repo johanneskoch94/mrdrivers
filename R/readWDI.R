@@ -38,7 +38,7 @@ readWDI <- function(subtype) {
     subtype
   )
 
-  x <- readr::read_rds("WDI_15_04_2024.Rds")
+  x <- readr::read_rds("WDI_02_06_2025.Rds")
 
   possibleSubtypes <- colnames(x)[!colnames(x) %in% c("iso3c", "iso2c", "country", "year")]
 
@@ -82,7 +82,16 @@ convertWDI <- function(x, subtype) {
                                           custom_match = c("JG" = "JEY"),
                                           warn = FALSE)
 
-  toolGeneralConvert(x)
+  x <- toolGeneralConvert(x)
+
+  if (subtype == "NY.GDP.MKTP.PP.KD") {
+    x <- GDPuc::toolConvertGDP(x,
+                               unit_in = "constant 2021 Int$PPP",
+                               unit_out = "constant 2017 Int$PPP",
+                               replace_NAs = c("linear", "no_conversion"))
+  }
+
+  x
 }
 
 

@@ -27,7 +27,7 @@ toolHarmonizeLabourSSPs <- function(past, future) {
   lastYearIMF <- max(getYears(readSource("IMF", "GDPpc"), as.integer = TRUE))
   shortTerm <- ssp2Pop[, getYears(ssp2Pop, as.integer = TRUE) <= lastYearIMF]
 
-   x <- past$x %>%
+  x <- past$x %>%
     toolHarmonizePast(shortTerm, method = "growth") %>%
     toolHarmonizePast(future$x, method = "growth") %>%
     # For any countries with missing projections, extrapolate (constant values assumed into the future).

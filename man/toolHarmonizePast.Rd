@@ -4,7 +4,13 @@
 \alias{toolHarmonizePast}
 \title{Tool to harmonize future data to past data, without modifying the past data}
 \usage{
-toolHarmonizePast(past, future, method = "level", yEnd = 2100)
+toolHarmonizePast(
+  past,
+  future,
+  method = "level",
+  yEnd = 2100,
+  requireTimeOverlap = TRUE
+)
 }
 \arguments{
 \item{past}{A magpie object with only one scenario/datatype, i.e. the length of the third dimension should be 1.}
@@ -24,6 +30,10 @@ last year of 'past' and decreases linearly to 0 by yEnd.
 }}
 
 \item{yEnd}{Additional input for "transition" method. Year by which the transition period is completed.}
+
+\item{requireTimeOverlap}{If TRUE (default), will throw an error if past and future do not have overlapping years.
+If FALSE, then the past object is extended (using the most recent value as a constant) until the first future
+year.}
 }
 \value{
 A magpie object with the same dimensions as 'future'.

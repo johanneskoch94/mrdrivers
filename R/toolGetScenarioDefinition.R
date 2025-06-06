@@ -72,24 +72,24 @@ toolGetScenarioDefinition <- function(driver = NULL, scen = NULL, aslist = FALSE
     "Population", "SSP2IndiaMedium", "WDI-UN_PopDiv-MI",    "IndiaDEAbase-SSP2-UN_PopDiv", "PopSSP2IndiaDEAs",
     "Population", "SSP2IndiaHigh",   "WDI-UN_PopDiv-MI",    "IndiaDEAopt-SSP2-UN_PopDiv",  "PopSSP2IndiaDEAs",
     # Labour Scenarios
-    "Labour",     "SSPs",            "WDI-UN_PopDiv",       "SSPs-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SSP1",            "WDI-UN_PopDiv",       "SSP1-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SSP2",            "WDI-UN_PopDiv",       "SSP2-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SSP3",            "WDI-UN_PopDiv",       "SSP3-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SSP4",            "WDI-UN_PopDiv",       "SSP4-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SSP5",            "WDI-UN_PopDiv",       "SSP5-UN_PopDiv",         "pastAndLevel",
-    "Labour",     "SDPs",            "WDI-UN_PopDiv",       "SDPs-UN_PopDiv",         "pastAndLevel",
+    "Labour",     "SSPs",            "WDI-UN_PopDiv",       "SSPs-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SSP1",            "WDI-UN_PopDiv",       "SSP1-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SSP2",            "WDI-UN_PopDiv",       "SSP2-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SSP3",            "WDI-UN_PopDiv",       "SSP3-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SSP4",            "WDI-UN_PopDiv",       "SSP4-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SSP5",            "WDI-UN_PopDiv",       "SSP5-UN_PopDiv",         "LabSSPs",
+    "Labour",     "SDPs",            "WDI-UN_PopDiv",       "SDPs-UN_PopDiv",         "pastAndLevelX",
     "Labour",     "SSP2IndiaDEAs",   "-",                   "-",                      "LabourSSP2IndiaDEAs",
     "Labour",     "SSP2IndiaMedium", "-",                   "-",                      "LabourSSP2IndiaDEAs",
     "Labour",     "SSP2IndiaHigh",   "-",                   "-",                      "LabourSSP2IndiaDEAs",
     # Urban population scenarios
-    "Urban",      "SSPs",            "WDI",                 "SSPs",                   "pastAndGrowth",
-    "Urban",      "SSP1",            "WDI",                 "SSP1",                   "pastAndGrowth",
-    "Urban",      "SSP2",            "WDI",                 "SSP2",                   "pastAndGrowth",
-    "Urban",      "SSP3",            "WDI",                 "SSP3",                   "pastAndGrowth",
-    "Urban",      "SSP4",            "WDI",                 "SSP4",                   "pastAndGrowth",
-    "Urban",      "SSP5",            "WDI",                 "SSP5",                   "pastAndGrowth",
-    "Urban",      "SDPs",            "WDI",                 "SDPs",                   "pastAndGrowth"
+    "Urban",      "SSPs",            "WDI",                 "SSPs",                   "pastAndGrowthX",
+    "Urban",      "SSP1",            "WDI",                 "SSP1",                   "pastAndGrowthX",
+    "Urban",      "SSP2",            "WDI",                 "SSP2",                   "pastAndGrowthX",
+    "Urban",      "SSP3",            "WDI",                 "SSP3",                   "pastAndGrowthX",
+    "Urban",      "SSP4",            "WDI",                 "SSP4",                   "pastAndGrowthX",
+    "Urban",      "SSP5",            "WDI",                 "SSP5",                   "pastAndGrowthX",
+    "Urban",      "SDPs",            "WDI",                 "SDPs",                   "pastAndGrowthX"
   )
 
   shortcuts <- list("SSPs" = c("SSP1", "SSP2", "SSP3", "SSP4", "SSP5"),

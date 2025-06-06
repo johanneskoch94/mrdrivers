@@ -22,6 +22,25 @@ toolHarmonizeWithPEAPandFuture <- function(past, future) {
                           and growth rates from {future$description} thereafter."))
 }
 
+toolHarmonizeLabourSSPs <- function(past, future) {
+  ssp2Pop <- calcOutput("Population", scenario = "SSP2", extension2150 = "none", aggregate = FALSE)
+  lastYearIMF <- max(getYears(readSource("IMF", "GDPpc"), as.integer = TRUE))
+  shortTerm <- ssp2Pop[, getYears(ssp2Pop, as.integer = TRUE) <= lastYearIMF]
+
+  x <- past$x %>%
+    toolHarmonizePast(shortTerm, method = "growth") %>%
+    toolHarmonizePast(future$x, method = "growth") %>%
+    # For any countries with missing projections, extrapolate (constant values assumed into the future).
+    toolInterpolateAndExtrapolate()
+
+  lastPastYear <- max(getYears(past$x, as.integer = TRUE))
+
+  list(x = x,
+       description = glue("use {past$description} until {lastPastYear}, \\
+                          growth rates from the Wolrld Bank's PEAP until {lastYearIMF}, \\
+                          and growth rates from {future$description} thereafter."))
+}
+
 toolHarmonizePopulationSSP2IndiaDEAs <- function(past, future) {
   ssp2Data <- calcOutput("Population", scenario = "SSP2", extension2150 = "none", aggregate = FALSE)
 

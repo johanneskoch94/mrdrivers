@@ -13,15 +13,17 @@
 #' @examples \dontrun{
 #' readSource("James", subtype = "gdppc")
 #' # Or more explicitly:
-#' readSource("James", subtype = "WB_USD05_PPP_pc")
+#' readSource("James", subtype = "WB ID (2005 base year)")
 #' }
 #' @order 2
 readJames <- function(subtype) {
   # Add alias for easy referencing
-  if (subtype == "gdppc") subtype <- "WB_USD05_PPP_pc"
+  if (subtype == "gdppc") subtype <- "WB ID (2005 base year)"
+  # Add alias due to legacy code in other packages
+  if (subtype == "IHME_USD05_PPP_pc") subtype <- "IHME ID (2005 base year)"
 
-  utils::read.csv("james.csv", sep = ";", dec = ",") %>%
-    `[`(, c("ISO3", "Year", subtype)) %>%
+  readxl::read_xlsx("12963_2011_195_MOESM3_ESM.xlsx", range = "C3:M13863") %>%
+    dplyr::select("ISO3", "Year", tidyselect::all_of(subtype)) %>%
     as.magpie(spatial = 1, temporal = 2, tidy = TRUE)
 }
 
@@ -30,14 +32,15 @@ readJames <- function(subtype) {
 #' @order 3
 convertJames <- function(x, subtype) {
   # Add alias for easy referencing
-  if (subtype == "gdppc") subtype <- "WB_USD05_PPP_pc"
-  if (subtype == "WB_USD05_PPP_pc") {
+  if (subtype == "gdppc") subtype <- "WB ID (2005 base year)"
+  if (subtype == "IHME_USD05_PPP_pc") subtype <- "IHME ID (2005 base year)"
+  if (subtype == "WB ID (2005 base year)") {
     x <- GDPuc::toolConvertGDP(x,
                                unit_in = "constant 2005 Int$PPP",
                                unit_out = toolGetUnitDollar(inPPP = TRUE),
                                replace_NAs = c("linear", "no_conversion"))
   }
-  # Ignore warning: Data for following unknown country codes removed: ANT, SUN
+  # Ignore warning: Data for following unknown country codes removed: ANT, USSR_FRMR
   toolGeneralConvert(x, warn = FALSE)
 }
 
@@ -46,7 +49,7 @@ convertJames <- function(x, subtype) {
 downloadJames <- function() {
   stop("Manual download of James data required!")
   # Compose meta data
-  list(url           = "https://static-content.springer.com/esm/art%3A10.1186%2F1478-7954-10-12/MediaObjects/12963_2011_195_MOESM1_ESM.xlsx", # nolint: line_length_linter.
+  list(url           = "https://static-content.springer.com/esm/art%3A10.1186%2F1478-7954-10-12/MediaObjects/12963_2011_195_MOESM3_ESM.xlsx", # nolint: line_length_linter.
        doi           = "-",
        title         = "James GDP per capita dataset",
        description   = "Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015",
@@ -54,5 +57,5 @@ downloadJames <- function() {
        author        = "James, S.L., Gubbins, P., Murray, C.J. et al.",
        release_date  = "2012",
        license       = "-",
-       comment       = "Manual download required! Accessed on the 08.10.2024.")
+       comment       = "Manual download required! Accessed on the 06.06.2025.")
 }

@@ -89,8 +89,8 @@ calcUrbanFuture <- function(futureData) {
 
 toolUrbanFutureSSPs <- function(ssps = c("SSP1", "SSP2", "SSP3", "SSP4", "SSP5")) {
   data <- readSource("SSP", "urb", ssps)
-  # Drop 2010 and 2015 values, and add missing years.
-  data <- data[, c(2010, 2015), , invert = TRUE]
+  # Drop 2010, 2015 and 2020 values, and add missing years.
+  data <- data[, c(2010, 2015, 2020), , invert = TRUE]
   time_interpolate(data, seq(2025, 2095, by = 10), integrate_interpolated_years = TRUE)
 }
 

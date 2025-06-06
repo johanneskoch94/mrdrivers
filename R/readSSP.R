@@ -11,7 +11,7 @@
 #' @order 1
 readSSP <- function() {
   myColTypes <- c(rep.int("text", 5), rep.int("numeric", 31))
-  x <- readxl::read_xlsx("ssp_basic_drivers_release_3.0.1_full.xlsx",
+  x <- readxl::read_xlsx("ssp_basic_drivers_release_3.2.beta_full.xlsx",
                          sheet = "data",
                          col_types = myColTypes,
                          progress = FALSE) %>%
@@ -61,7 +61,7 @@ convertSSP <- function(x, subtype = "all", subset = c("SSP1", "SSP2", "SSP3", "S
 
   if (subtype == "gdp") {
     x <- mselect(x,
-                 Model = "OECD ENV-Growth 2023",
+                 Model = "OECD ENV-Growth 2025",
                  Scenario = subset,
                  Variable = "GDP|PPP",
                  Unit = "billion USD_2017/yr")
@@ -69,13 +69,13 @@ convertSSP <- function(x, subtype = "all", subset = c("SSP1", "SSP2", "SSP3", "S
     x <- x * 1e3
   }
   if (subtype == "pop") {
-    x <- mselect(x, Model = "IIASA-WiC POP 2023", Scenario = subset, Variable = "Population", Unit = "million")
+    x <- mselect(x, Model = "IIASA-WiC POP 2025", Scenario = subset, Variable = "Population", Unit = "million")
   }
   if (subtype == "lab") {
     # Choose only age groups between 15 and 64
     agegrps <- getNames(x, dim = "Variable")[grepl("^Population(.*)(19|24|29|34|39|44|49|54|59|64)$",
                                                    getNames(x, dim = "Variable"))]
-    x <- mselect(x, Model = "IIASA-WiC POP 2023", Scenario = subset, Variable = agegrps, Unit = "million")
+    x <- mselect(x, Model = "IIASA-WiC POP 2025", Scenario = subset, Variable = agegrps, Unit = "million")
   }
   if (subtype == "urb") {
     x <- mselect(x, Model = "NCAR", Variable = "Population|Urban|Share", Unit = "%")
@@ -89,9 +89,12 @@ convertSSP <- function(x, subtype = "all", subset = c("SSP1", "SSP2", "SSP3", "S
   # Reduce dimension by summation when possible
   if (subtype != "all") x <- dimSums(x, dim = c("Model", "Variable", "Unit"))
 
-  # Drop regions (anything with brackets, or called "World") and convert to iso3c. Use custom match for the Federal
-  # States of Micronesia (= FSM)
+  # Drop regions (anything with brackets, or called "World")
   x <- x[!grepl("\\(|World", getCells(x)), , ]
+  # Add Kosovo to Serbia
+  x["Serbia", , ] <- dimSums(x[c("Serbia", "Kosovo"), , ], dim = 1, na.rm = TRUE)
+  x <- x["Kosovo", invert = TRUE]
+  # Convert to iso3c. Use custom match for the Federal States of Micronesia (= FSM)
   getCells(x) <- countrycode::countrycode(getCells(x), "country.name", "iso3c", custom_match = c("Micronesia" = "FSM"))
 
 

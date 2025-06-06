@@ -36,7 +36,7 @@ The data is in Annex 3.
 \dontrun{
 readSource("James", subtype = "gdppc")
 # Or more explicitly:
-readSource("James", subtype = "WB_USD05_PPP_pc")
+readSource("James", subtype = "WB ID (2005 base year)")
 }
 }
 \seealso{

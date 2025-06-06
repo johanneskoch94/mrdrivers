@@ -18,6 +18,7 @@ calcInternalPopulationPast <- function(pastData) {
     "WDI"       = readSource("WDI", "pop"),
     "UN_PopDiv" = readSource("UN_PopDiv", "pop", "estimates"),
     "MI"        = readSource("MissingIslands", "pop"),
+    "SSPs"      = readSource("SSP", "pop", "Historical Reference"),
     stop("Bad input for calcPopulationPast. Invalid 'pastData' argument.")
   )
 

@@ -43,7 +43,7 @@ Suggests:
     zoo
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Date: 2025-06-06
 Config/testthat/edition: 3
 VignetteBuilder: knitr

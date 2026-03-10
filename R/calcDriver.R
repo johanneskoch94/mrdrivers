@@ -57,8 +57,8 @@ calcDriver <- function(driver, scenario, popAsWeight = FALSE, naming = "scenario
                          extension2150 = extension2150,
                          aggregate = FALSE,
                          supplementary = TRUE)) %>%
-    purrr::reduce(~list(x = mbind(.x$x, .y$x),
-                        weight = mbind(.x$weight, .y$weight),
+    purrr::reduce(~list(x = toolMbindAddMissingYears(.x$x, .y$x),
+                        weight = toolMbindAddMissingYears(.x$weight, .y$weight),
                         unit = .x$unit,
                         description = glue("{.x$description} || {.y$description}")))
 }
@@ -157,13 +157,10 @@ calcHarmonizedData <- function(driver, scenario) {
     "PopSSPs"             = toolHarmonizeWithPEAPandFuture(past, future),
     "LabSSPs"             = toolHarmonizeLabourSSPs(past, future),
     "PopSSP2IndiaDEAs"    = toolHarmonizePopulationSSP2IndiaDEAs(past, future),
-    "PopISIMIP"           = toolHarmonizePast(past,
-                                              future,
-                                              method = "transition",
-                                              yEnd = 2030,
-                                              requireTimeOverlap = FALSE),
+    "PopISIMIP"           = toolHarmonizePopulationSSPsISIMIP(past, future),
     "GDPpcSSPs"           = toolHarmonizeGDPpcSSPs(past, future, yEnd = 2100),
     "GDPpcSDPs"           = toolBuildGDPpcSDPs(),
+    "GDPpcSSPsISIMIP"     = toolHarmonizeGDPpcSSPsISIMIP(past, future, yEnd = 2100),
     "GDPpcSSP2IndiaDEAs"  = toolHarmonizeGDPpcSSP2IndiaDEAs(past, future),
     "GDPoverPop"          = toolDivideGDPbyPop(scenario),
     "GDPpcWithPop"        = toolMultiplyGDPpcWithPop(scenario),

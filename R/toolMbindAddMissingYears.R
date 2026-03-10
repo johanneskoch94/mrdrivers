@@ -7,7 +7,7 @@
 #' @param y A magpie object
 #'
 #' @returns A magpie object
-#' @internal
+#' @keywords internal
 toolMbindAddMissingYears <- function(x, y) {
   if (is.null(x)) {
     return(NULL)

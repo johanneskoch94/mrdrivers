@@ -38,7 +38,7 @@ readWDI <- function(subtype) {
     subtype
   )
 
-  x <- readr::read_rds("WDI_02_06_2025.Rds")
+  x <- readr::read_rds("WDI_withOldPriceLevel_13_05_2026.Rds")
 
   possibleSubtypes <- colnames(x)[!colnames(x) %in% c("iso3c", "iso2c", "country", "year")]
 
@@ -87,7 +87,7 @@ convertWDI <- function(x, subtype) {
   if (subtype == "NY.GDP.MKTP.PP.KD") {
     x <- GDPuc::toolConvertGDP(x,
                                unit_in = "constant 2021 Int$PPP",
-                               unit_out = "constant 2017 Int$PPP",
+                               unit_out = toolGetUnitDollar(inPPP = TRUE),
                                replace_NAs = c("linear", "no_conversion"))
   }
 
@@ -105,7 +105,7 @@ downloadWDI <- function() {
     "SP.POP.TOTL",       # Total population
     "SP.POP.1564.TO",    # Working age population (15-64 years old)
     "SP.URB.TOTL.IN.ZS", # Urban Population (% of total)
-    "PA.NUS.PPPC.RF",    # Price Level Ration (PPP/MER)
+    "PA.NUS.PPPC.RF",    # Price Level Ratio (PPP/MER)
     "NY.GDP.MKTP.PP.KD", # GDP [constant 2017 Int$PPP]
     "NV.AGR.TOTL.KD",    # For mrvalidation: AgFF value added [constant 2015 US$MER]
     "AG.SRF.TOTL.K2"     # For mredgebuildings: surface area [square kms]

@@ -122,6 +122,12 @@ toolDivideGDPbyPop <- function(scenario) {
                           {pop$description}"))
 }
 
+toolHarmonizeGDPpcSSPsISIMIP <- function(past, future, yEnd) {
+  gdppc <- toolHarmonizeGDPpcSSPs(past, future, yEnd = 2100)
+  gdppc$x <- setNames(gdppc$x, paste0(getNames(gdppc$x), "ISIMIP"))
+  list(x = gdppc$x, description = gdppc$description)
+}
+
 toolHarmonizeGDPpcSSP2IndiaDEAs <- function(past, future) {
   ssp2Data <- calcOutput("GDPpc", scenario = "SSP2", extension2150 = "none", average2020 = FALSE, aggregate = FALSE)
 

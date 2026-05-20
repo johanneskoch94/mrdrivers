@@ -41,6 +41,16 @@ toolHarmonizeLabourSSPs <- function(past, future) {
                           and growth rates from {future$description} thereafter."))
 }
 
+toolHarmonizePopulationSSPsISIMIP <- function(past, future) {
+  pop <- toolHarmonizePast(past,
+                           future,
+                           method = "transition",
+                           yEnd = 2030,
+                           requireTimeOverlap = FALSE)
+  pop$x <- setNames(pop$x, paste0(getNames(pop$x), "ISIMIP"))
+  list(x = pop$x, description = pop$description)
+}
+
 toolHarmonizePopulationSSP2IndiaDEAs <- function(past, future) {
   ssp2Data <- calcOutput("Population", scenario = "SSP2", extension2150 = "none", aggregate = FALSE)
 

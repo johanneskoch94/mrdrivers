@@ -43,7 +43,7 @@ toolGetScenarioDefinition <- function(driver = NULL, scen = NULL, aslist = FALSE
     "GDPpc",      "SSP4",            "WDI-MI-James",        "SSP4",                   "GDPpcSSPs",
     "GDPpc",      "SSP5",            "WDI-MI-James",        "SSP5",                   "GDPpcSSPs",
     "GDPpc",      "SDPs",            "-",                   "-",                      "GDPpcSDPs",
-    "GDPpc",      "ISIMIP",          "WDI-MI-James",        "SSPs",                   "GDPpcSSPs",
+    "GDPpc",      "ISIMIP",          "WDI-MI-James",        "SSPs",                   "GDPpcSSPsISIMIP",
     "GDPpc",      "SSP2IndiaDEAs",   "WDI-MI-James",        "IndiaDEAs-SSP2",         "GDPpcSSP2IndiaDEAs",
     "GDPpc",      "SSP2IndiaMedium", "WDI-MI-James",        "IndiaDEAbase-SSP2",      "GDPpcSSP2IndiaDEAs",
     "GDPpc",      "SSP2IndiaHigh",   "WDI-MI-James",        "IndiaDEAopt-SSP2",       "GDPpcSSP2IndiaDEAs",

@@ -1,7 +1,7 @@
 #' Read-in data from the International Monetary Fund's (IMF) Economic Outlook
 #'
 #' Read-in data from the IMF's World Economic Outlook.
-#' Currently reading GDP per capita (in constant 2021 Int$PPP) and current account balance data.
+#' Currently reading GDP per capita (in constant 2021 Int$PPP), current account balance data and population.
 #'
 #' @inherit madrat::readSource return
 #' @seealso [madrat::readSource()] and [madrat::downloadSource()]
@@ -11,8 +11,9 @@
 #' }
 #' @order 2
 readIMF <- function() {
-  # Define what data ("INDICATOR.ID") to keep: here GDPpc in PPP (NGDPRPPPPC) and current account balance (BCA)
-  myIndicatorIDs <- c("NGDPRPPPPC", "BCA")
+  # Define what data ("INDICATOR.ID") to keep: here GDPpc in PPP (NGDPRPPPPC), current account balance (BCA) and
+  # population (LP)
+  myIndicatorIDs <- c("NGDPRPPPPC", "BCA", "LP")
 
   readxl::read_xlsx("WEOApr2026all.xlsx", sheet = "Countries", progress = FALSE) %>%
     suppressWarnings() %>%
@@ -34,8 +35,8 @@ readIMF <- function() {
 #' @param subtype Use to filter the IMF data
 #' @order 3
 convertIMF <- function(x, subtype = "all") {
-  if (!subtype %in% c("all", "GDPpc", "BCA")) {
-    stop("Bad input for readIMF. Invalid 'subtype' argument. Available subtypes are 'all', 'GDPpc', and 'BCA'.")
+  if (!subtype %in% c("all", "gdppc", "gdp", "BCA")) {
+    stop("Bad input for readIMF. Invalid 'subtype' argument. Available subtypes are 'all', 'gdppc', 'gdp', and 'BCA'.")
   }
 
   # Add Kosovo to Serbia
@@ -47,19 +48,24 @@ convertIMF <- function(x, subtype = "all") {
   x <- x[getItems(x, dim = 1) != "WBG", , ]
 
   # Use convert function to filter
-  if (subtype == "GDPpc") {
+  if (subtype == "gdppc") {
     h <- "Gross domestic product (GDP), Constant prices, Per capita, purchasing power parity (PPP) international dollar, ICP benchmark 2021 [Units NA]" # nolint: line_length_linter.
     x <- x[, , h]
+  }
+  if (subtype == "gdp") {
+    h <- "Gross domestic product (GDP), Constant prices, Per capita, purchasing power parity (PPP) international dollar, ICP benchmark 2021 [Units NA]" # nolint: line_length_linter.
+    h2 <- "Population, Persons for countries / Index for country groups [Millions NA]"
+    x <- x[, , h] * x[, , h2]
   }
   if (subtype == "BCA") x <- x[, , "Current account balance (credit less debit), US dollar [Billions US dollar]"]
 
   x <- toolGeneralConvert(x)
 
-  if (subtype == "GDPpc") {
+  if (subtype %in% c("gdppc", "gdp")) {
     x <- GDPuc::toolConvertGDP(x,
                                unit_in = "constant 2021 Int$PPP",
                                unit_out = toolGetUnitDollar(inPPP = TRUE),
-                               replace_NAs = c("linear", "no_conversion"))
+                               replace_NAs = "no_conversion")
   }
 
   x

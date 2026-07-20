@@ -2,7 +2,7 @@
 % Please edit documentation in R/toolCreateComparisonPlots.R
 \name{toolCreateComparisonPlots}
 \alias{toolCreateComparisonPlots}
-\title{Plot differences to previous version}
+\title{Plot differences between two versions}
 \usage{
 toolCreateComparisonPlots(new = "current", old = "7.2.1", tCutOff = 2050)
 }
@@ -17,6 +17,6 @@ toolCreateComparisonPlots(new = "current", old = "7.2.1", tCutOff = 2050)
 An invisible list of plots
 }
 \description{
-Create line plots comparing the new scenarios with the old
+Create line plots comparing two different versions of the scenarios
 }
 \keyword{internal}

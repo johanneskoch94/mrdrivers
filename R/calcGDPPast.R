@@ -48,6 +48,7 @@ calcInternalGDPPast <- function(pastData) {
   data <- switch(
     pastData,
     "WDI"   = readSource("WDI", "gdp"),
+    "IMF"   = readSource("IMF", "gdp"),
     "MI"    = readSource("MissingIslands", "gdp"),
     "James" = toolGDPPastJames(),
     "SSPs"  = readSource("SSP", "gdp", "Historical Reference"),

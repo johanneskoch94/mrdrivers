@@ -27,7 +27,14 @@ toolCreateComparisonPlots <- function(new = "current", old = "7.2.1", tCutOff = 
       dplyr::filter(dplyr::between(.data$year, 2015, tCutOff)) %>%
       ggplot2::ggplot() +
       ggplot2::geom_line(ggplot2::aes(.data$year, .data$value, col = .data$scen, linetype = .data$v)) +
-      ggplot2::facet_wrap(~.data$driver, ncol = 3, scales = "free_y")
+      ggplot2::facet_wrap(~.data$driver, ncol = 3, scales = "free_y") +
+      ggplot2::ylab(NULL) +
+      ggplot2::theme(legend.position = "inside",
+                     legend.position.inside = c(0.82, 0.23),
+                     legend.justification = c(0.5, 0.5),
+                     legend.box = "horizontal",
+                     legend.box.just = "center",
+                     legend.title = ggplot2::element_blank())
   }
 
   new_list <- toolGetAllDrivers(new)$regions

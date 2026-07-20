@@ -37,7 +37,7 @@ readWDI <- function(subtype) {
     subtype
   )
 
-  x <- readr::read_rds("WDI_withOldPriceLevel_13_05_2026.Rds")
+  x <- readr::read_rds("WDI_17_07_2026.Rds")
 
   possibleSubtypes <- colnames(x)[!colnames(x) %in% c("iso3c", "iso2c", "country", "year")]
 
@@ -87,7 +87,7 @@ convertWDI <- function(x, subtype) {
     x <- GDPuc::toolConvertGDP(x,
                                unit_in = "constant 2021 Int$PPP",
                                unit_out = toolGetUnitDollar(inPPP = TRUE),
-                               replace_NAs = c("linear", "no_conversion"))
+                               replace_NAs = "no_conversion")
   }
 
   x

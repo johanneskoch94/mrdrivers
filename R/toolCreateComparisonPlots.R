@@ -1,6 +1,6 @@
-#' Plot differences to previous version
+#' Plot differences between two versions
 #'
-#' Create line plots comparing the new scenarios with the old
+#' Create line plots comparing two different versions of the scenarios
 #'
 #' @param new description
 #' @param old description
@@ -10,18 +10,6 @@
 #' @keywords internal
 toolCreateComparisonPlots <- function(new = "current", old = "7.2.1", tCutOff = 2050) {
   rlang::check_installed("ggplot2")
-
-  if (new == "current") {
-    new_list <- toolGetAllDrivers()
-    new_list_countries <- toolGetAllDrivers(aggregate = FALSE)
-  } else {
-    new_list <- readr::read_rds(glue::glue("compare_versions/scenarios/ssps_v{new}.Rds"))
-    new_list_countries <- readr::read_rds(glue::glue("compare_versions/scenarios/ssps_v{new}_country.Rds"))
-  }
-
-  old_list <- readr::read_rds(glue::glue("compare_versions/scenarios/ssps_v{old}.Rds"))
-  old_list_countries <- readr::read_rds(glue::glue("compare_versions/scenarios/ssps_v{old}_country.Rds"))
-
 
   my_plot <- function(new_list, old_list, i) {
     new_drivers_i <- purrr::map(new_list, ~ tibble::as_tibble(.x[i, , ])) %>%
@@ -41,6 +29,12 @@ toolCreateComparisonPlots <- function(new = "current", old = "7.2.1", tCutOff = 
       ggplot2::geom_line(ggplot2::aes(.data$year, .data$value, col = .data$scen, linetype = .data$v)) +
       ggplot2::facet_wrap(~.data$driver, ncol = 3, scales = "free_y")
   }
+
+  new_list <- toolGetAllDrivers(new)$regions
+  new_list_countries <- toolGetAllDrivers(new)$countries
+
+  old_list <- toolGetAllDrivers(old)$regions
+  old_list_countries <- toolGetAllDrivers(old)$countries
 
   plots <- NULL
   for (i in getItems(new_list$pop, 1)) plots[[i]] <- my_plot(new_list, old_list, i)

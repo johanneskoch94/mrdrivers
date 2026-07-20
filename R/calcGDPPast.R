@@ -90,7 +90,7 @@ calcGDPpcPast <- function(scenario = "SSPs") {
   weight <- pop
   getNames(weight) <- getNames(data)
   # Make sure weight and data have the same yearly resolution.
-  ## Sometimes weght has more years than x, thus the intersect operation.
+  ## Sometimes weight has more years than x, thus the intersect operation.
   weight <- weight[, intersect(getYears(data), getYears(weight)), ]
   ## If x has more years than weight, add these years and interpolate
   missingYears <- getYears(data)[! getYears(data) %in% getYears(weight)]
